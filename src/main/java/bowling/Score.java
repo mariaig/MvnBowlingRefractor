@@ -12,12 +12,19 @@ import bowling.Game;
  * @author Maria
  */
 public class Score {
-    public NumberOfPins score;
+    private NumberOfPins score;
     
+    public Score(int score){
+        //used only for perfect score
+        this.score=new NumberOfPins(score);
+    }
     public Score(NumberOfPins score){
         this.score=score;
     }
     public NumberOfPins getScore(){
+        return this.score;
+    }
+    public NumberOfPins getNumberOfPins(){
         return this.score;
     }
 
@@ -25,7 +32,23 @@ public class Score {
     public String toString() {
         return "---> "+score.getNumberOfPins()+"---";
     }
+    public void sum(Score score1){
+        //used for add opens
+        this.score=this.score.sum(score1.getNumberOfPins());
+    }
+    public void sum(Score score1,Score score2){
+        //one strike+open/spare
+        sum(score1);
+        this.score=this.score.sum(score2.getNumberOfPins());
+    }
     
+    public  void sum(Score score1,Score score2,Score score3){
+        //usually used for 2 strikes + one roll or 3 strikes
+        sum(score1,score2);
+        this.score=this.score.sum(score3.getNumberOfPins());
+    }
     
-    public void keepScore(Game game){}
+    public int toInt(){
+        return this.score.getNumberOfPins();
+    }
 }

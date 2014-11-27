@@ -24,4 +24,10 @@ public final class Roll {
         return nrOfPins;
     }
 
+    public boolean isStrike(){
+        return this.nrOfPins.getNumberOfPins()==10;
+    }
+    public boolean isSpare(Roll roll2){
+        return this.nrOfPins.getNumberOfPins()+roll2.getRoll().getNumberOfPins()==10;
+    }
 }

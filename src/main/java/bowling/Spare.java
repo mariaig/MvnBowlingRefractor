@@ -15,7 +15,7 @@ public class Spare extends Frame {
         super(roll1, new Roll(new NumberOfPins(10-roll1.getRoll().getNumberOfPins())));
     }
     
-     public Spare(Roll roll1, Roll roll2,Roll roll3) {
+     public Spare(Roll roll1,Roll roll3) {
         super(roll1,new Roll(new NumberOfPins(10-roll1.getRoll().getNumberOfPins())),roll3);
     }
  

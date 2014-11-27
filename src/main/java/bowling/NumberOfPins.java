@@ -18,6 +18,8 @@ public class NumberOfPins {
     public Integer getNumberOfPins(){
         return this.numberOfPins;
     }
-    
+    public NumberOfPins sum(NumberOfPins nr){
+        return new NumberOfPins(this.numberOfPins+nr.getNumberOfPins());
+    }
     
 }

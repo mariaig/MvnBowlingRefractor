@@ -19,4 +19,5 @@ public class Open extends Frame {
          return new Score(new NumberOfPins(super.rolls[0].getRoll().getNumberOfPins()+super.rolls[1].getRoll().getNumberOfPins()));
     
     }
+
 }

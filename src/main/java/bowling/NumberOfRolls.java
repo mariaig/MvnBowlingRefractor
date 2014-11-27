@@ -10,12 +10,17 @@ package bowling;
  * @author Maria
  */
 public final class NumberOfRolls {
-    private final Integer numberOfRolls;
+    private final int numberOfRolls;
+    private static final NumberOfRolls maxRolls=new NumberOfRolls(22);
 
-    public NumberOfRolls(Integer nr) {
+    public NumberOfRolls(int nr) {
         this.numberOfRolls=nr;
     }
-    public Integer getNumberOfRolls(){
+    public int getIntNumberOfRolls(){
         return numberOfRolls;
+    }
+    
+    public static NumberOfRolls getMaxNumberOfRolls(){
+        return maxRolls;
     }
 }

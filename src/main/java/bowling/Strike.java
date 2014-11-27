@@ -10,18 +10,24 @@ package bowling;
  * @author Maria
  */
 public class Strike extends Frame {
-
+    private static int nrOfStrikes=0;
     public Strike() {
         //one frame=one strike
         super(new Roll(new NumberOfPins(10)));
+        nrOfStrikes++;
     }
-    public Strike(Roll roll3){
-        //at last frame 2 strikes and bonus roll
-        super(new Roll(new NumberOfPins(10)),new Roll(new NumberOfPins(10)),roll3);
-    }
+  
     public Strike(Roll roll2,Roll roll3){
         //at last frame one strike and two rolls
         super(new Roll(new NumberOfPins(10)),roll2,roll3);
+        nrOfStrikes++;
+        if(roll2.isStrike()){
+            nrOfStrikes++;
+        }
+        if(roll3.isStrike()){
+            nrOfStrikes++;
+        }
+        
     }
 
     @Override
@@ -33,5 +39,8 @@ public class Strike extends Frame {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    public static int getNrOfStrikes(){
+        return nrOfStrikes;
+    }
    
 }
