@@ -61,21 +61,21 @@ public final class Player {
        
     }
     
-   public void printF(){
-       for(int i=0;i<Frame.getNrOfFRAMES();i++){
-           System.out.println(allowedFrames[i]);
-       }
-   }
+//   public void printF(){
+//       for(int i=0;i<Frame.getNrOfFRAMES();i++){
+//           System.out.println(allowedFrames[i]);
+//       }
+//   }
     public Score getPlayerScore() throws InvalidNumberOfRolls{
         if(Strike.getNrOfStrikes()==12){
             //perfect score
             return new Score(300);
         }
         int count=0;
-        printF();
+        //printF();
         Score totalScore=new Score(0);
         while(count<Frame.getNrOfFRAMES()){
-            System.out.println("C: "+count+" TS: "+totalScore);
+//            System.out.println("C: "+count+" TS: "+totalScore);
             if(count==Frame.getNrOfFRAMES()-1){
                 //I'm at the last frame
                 if(allowedFrames[count].isStrike()){
@@ -91,7 +91,7 @@ public final class Player {
                 }
             }
             if(allowedFrames[count].isStrike()){
-                System.out.println("HERE STRIKE "+count);
+//                System.out.println("HERE STRIKE "+count);
                 if(count==Frame.getNrOfFRAMES()-2){
                     //I am at the 9-th frame an I have a strike=> sum with frame 10 roll1 and roll2
                      totalScore.sum(allowedFrames[count].getPartialScore(),allowedFrames[count+1].getScoreRool1(),allowedFrames[count+1].getScoreRoll2());
@@ -108,8 +108,7 @@ public final class Player {
                     }
                 }else{
                     //one strike + a spare or an open
-                    System.out.println("HERE!!!! "+count+" ___ "+allowedFrames[count].getPartialScore()+"____"+allowedFrames[count+1].getPartialScore());
-                     totalScore.sum(allowedFrames[count].getPartialScore(),allowedFrames[count+1].getPartialScore()); 
+                    totalScore.sum(allowedFrames[count].getPartialScore(),allowedFrames[count+1].getPartialScore()); 
                 }
             }else if(allowedFrames[count].isSpare()){
                 totalScore.sum(allowedFrames[count].getPartialScore(),allowedFrames[count+1].getScoreRool1());  
